@@ -6,9 +6,10 @@ import androidx.lifecycle.ViewModel
 import com.natlus.fallguyscounter.models.Score
 
 class ScoreViewModel : ViewModel() {
-    var scoresMutableLiveData: MutableLiveData<Score> = MutableLiveData<Score>()
-    var score = Score()
-    var scoreLiveData: LiveData<Score> = scoresMutableLiveData
+    private var scoresMutableLiveData: MutableLiveData<Score> = MutableLiveData<Score>()
+    private var score = Score()
+    val scoreLiveData: LiveData<Score>
+        get() = scoresMutableLiveData
 
     fun addScoreFall() {
         score.fallScore += 1
